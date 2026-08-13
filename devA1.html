@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Developer A | GitHub Testing</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0d1117;
+            color: #f0f6fc;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* NAVBAR */
+
+        header {
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .navbar {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #58a6ff;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #8b949e;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #58a6ff;
+        }
+
+        .github-btn {
+            background: #238636;
+            padding: 10px 17px;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* HERO */
+
+        .hero {
+            padding: 70px 0;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            margin: auto;
+            border-radius: 50%;
+            background: #238636;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 65px;
+            font-weight: bold;
+
+            border: 5px solid #30363d;
+        }
+
+        .profile h2 {
+            margin-top: 20px;
+            font-size: 28px;
+        }
+
+        .username {
+            color: #58a6ff;
+            margin-top: 7px;
+        }
+
+        .role {
+            color: #8b949e;
+            margin-top: 12px;
+        }
+
+        .hero-info h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .hero-info h1 span {
+            color: #58a6ff;
+        }
+
+        .hero-info p {
+            color: #8b949e;
+            font-size: 17px;
+            max-width: 650px;
+        }
+
+        /* BRANCH */
+
+        .branch-box {
+            margin-top: 30px;
+
+            background: #010409;
+            border: 1px solid #30363d;
+
+            border-radius: 8px;
+
+            padding: 20px;
+        }
+
+        .branch-title {
+            color: #8b949e;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .branch-name {
+            color: #3fb950;
+            font-family: monospace;
+            font-size: 17px;
+        }
+
+        /* STATS */
+
+        .stats {
+            padding: 40px 0;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .stat-card h3 {
+            font-size: 30px;
+            color: #58a6ff;
+        }
+
+        .stat-card p {
+            color: #8b949e;
+            margin-top: 5px;
+        }
+
+        /* MAIN */
+
+        .main {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+        }
+
+        .section-title p {
+            color: #8b949e;
+            margin-top: 5px;
+        }
+
+        /* TASKS */
+
+        .tasks {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 70px;
+        }
+
+        .task {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .task-number {
+            color: #58a6ff;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .task h3 {
+            margin: 12px 0;
+        }
+
+        .task p {
+            color: #8b949e;
+            font-size: 14px;
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: rgba(46, 160, 67, .15);
+            color: #3fb950;
+            font-size: 12px;
+        }
+
+        /* COMMITS */
+
+        .commit-box {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 70px;
+        }
+
+        .commit {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 20px 25px;
+
+            border-bottom: 1px solid #21262d;
+        }
+
+        .commit:last-child {
+            border-bottom: none;
+        }
+
+        .commit-message {
+            font-weight: bold;
+        }
+
+        .commit-hash {
+            color: #58a6ff;
+            font-family: monospace;
+            font-size: 13px;
+        }
+
+        .commit-date {
+            color: #8b949e;
+            font-size: 13px;
+        }
+
+        /* WORKFLOW */
+
+        .workflow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+
+            background: #010409;
+            border: 1px solid #30363d;
+
+            padding: 35px;
+
+            border-radius: 10px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-icon {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: auto;
+
+            border-radius: 50%;
+
+            background: #21262d;
+            color: #58a6ff;
+
+            font-weight: bold;
+        }
+
+        .step h4 {
+            margin-top: 10px;
+        }
+
+        .step small {
+            color: #8b949e;
+        }
+
+        .arrow {
+            color: #58a6ff;
+            font-size: 25px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #30363d;
+            background: #010409;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: #8b949e;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+
+            nav {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tasks {
+                grid-template-columns: 1fr;
+            }
+
+            .workflow {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .github-btn {
+                display: none;
+            }
+
+            .hero-info h1 {
+                font-size: 35px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .commit {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .workflow {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+
+    <div class="container navbar">
+
+        <div class="logo">
+            ◉ <span>Testing Project</span>
+        </div>
+
+        <nav>
+            <a href="#profile">Profile</a>
+            <a href="#tasks">Tasks</a>
+            <a href="#commits">Commits</a>
+            <a href="#workflow">Workflow</a>
+        </nav>
+
+        <a href="#" class="github-btn">
+            GitHub
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="profile">
+
+    <div class="container hero-content">
+
+        <div class="profile">
+
+            <div class="avatar">
+                A
+            </div>
+
+            <h2>
+                Developer A
+            </h2>
+
+            <div class="username">
+                @erankitkumar9090
+            </div>
+
+            <div class="role">
+                PHP / Laravel Developer
+            </div>
+
+        </div>
+
+
+        <div class="hero-info">
+
+            <h1>
+                Welcome to
+                <span>Developer A</span>
+                Dashboard
+            </h1>
+
+            <p>
+                This page is created for GitHub collaboration testing.
+                Developer A works on an independent branch and submits
+                changes through Pull Requests before merging into main.
+            </p>
+
+
+            <div class="branch-box">
+
+                <div class="branch-title">
+                    CURRENT BRANCH
+                </div>
+
+                <div class="branch-name">
+                    ● developer-a
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+    <div class="container stats-grid">
+
+        <div class="stat-card">
+            <h3>12</h3>
+            <p>Total Commits</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>05</h3>
+            <p>Features</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>03</h3>
+            <p>Pull Requests</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>01</h3>
+            <p>Active Branch</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MAIN -->
+
+<main class="main">
+
+    <div class="container">
+
+
+        <!-- TASKS -->
+
+        <div id="tasks">
+
+            <div class="section-title">
+
+                <h2>
+                    Assigned Tasks
+                </h2>
+
+                <p>
+                    Tasks currently assigned to Developer A
+                </p>
+
+            </div>
+
+
+            <div class="tasks">
+
+                <div class="task">
+
+                    <div class="task-number">
+                        TASK #001
+                    </div>
+
+                    <h3>
+                        Homepage Design
+                    </h3>
+
+                    <p>
+                        Create the main testing project homepage
+                        with responsive design.
+                    </p>
+
+                    <span class="status">
+                        Completed
+                    </span>
+
+                </div>
+
+
+                <div class="task">
+
+                    <div class="task-number">
+                        TASK #002
+                    </div>
+
+                    <h3>
+                        Developer Profile
+                    </h3>
+
+                    <p>
+                        Create Developer A profile page and
+                        connect it with the project.
+                    </p>
+
+                    <span class="status">
+                        Completed
+                    </span>
+
+                </div>
+
+
+                <div class="task">
+
+                    <div class="task-number">
+                        TASK #003
+                    </div>
+
+                    <h3>
+                        Git Testing
+                    </h3>
+
+                    <p>
+                        Test branch, commit, push, pull request
+                        and merge operations.
+                    </p>
+
+                    <span class="status">
+                        In Progress
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMMITS -->
+
+        <div id="commits">
+
+            <div class="section-title">
+
+                <h2>
+                    Recent Commits
+                </h2>
+
+                <p>
+                    Latest changes made by Developer A
+                </p>
+
+            </div>
+
+
+            <div class="commit-box">
+
+                <div class="commit">
+
+                    <div>
+                        <div class="commit-message">
+                            Create Developer A dashboard
+                        </div>
+
+                        <div class="commit-hash">
+                            a8f21d9
+                        </div>
+                    </div>
+
+                    <div class="commit-date">
+                        Today
+                    </div>
+
+                </div>
+
+
+                <div class="commit">
+
+                    <div>
+                        <div class="commit-message">
+                            Add Git workflow section
+                        </div>
+
+                        <div class="commit-hash">
+                            b72c481
+                        </div>
+                    </div>
+
+                    <div class="commit-date">
+                        Yesterday
+                    </div>
+
+                </div>
+
+
+                <div class="commit">
+
+                    <div>
+                        <div class="commit-message">
+                            Update homepage design
+                        </div>
+
+                        <div class="commit-hash">
+                            91d5fa2
+                        </div>
+                    </div>
+
+                    <div class="commit-date">
+                        2 days ago
+                    </div>
+
+                </div>
+
+
+                <div class="commit">
+
+                    <div>
+                        <div class="commit-message">
+                            Initial project setup
+                        </div>
+
+                        <div class="commit-hash">
+                            43c8e10
+                        </div>
+                    </div>
+
+                    <div class="commit-date">
+                        3 days ago
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- WORKFLOW -->
+
+        <div id="workflow">
+
+            <div class="section-title">
+
+                <h2>
+                    Developer A Git Workflow
+                </h2>
+
+                <p>
+                    Changes are developed on the developer-a branch.
+                </p>
+
+            </div>
+
+
+            <div class="workflow">
+
+                <div class="step">
+
+                    <div class="step-icon">
+                        01
+                    </div>
+
+                    <h4>Code</h4>
+                    <small>Write Code</small>
+
+                </div>
+
+
+                <div class="arrow">
+                    →
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-icon">
+                        02
+                    </div>
+
+                    <h4>Commit</h4>
+                    <small>Save Changes</small>
+
+                </div>
+
+
+                <div class="arrow">
+                    →
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-icon">
+                        03
+                    </div>
+
+                    <h4>Push</h4>
+                    <small>Upload Branch</small>
+
+                </div>
+
+
+                <div class="arrow">
+                    →
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-icon">
+                        04
+                    </div>
+
+                    <h4>PR</h4>
+                    <small>Code Review</small>
+
+                </div>
+
+
+                <div class="arrow">
+                    →
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-icon">
+                        05
+                    </div>
+
+                    <h4>Merge</h4>
+                    <small>Into Main</small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container">
+
+        <p>
+            Developer A • @erankitkumar9090
+        </p>
+
+        <p>
+            GitHub Testing Project © 2026
+        </p>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
