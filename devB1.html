@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Services | Testing Project</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .navbar {
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: #7c3aed;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #7c3aed;
+        }
+
+        .contact-btn {
+            background: #7c3aed;
+            color: white;
+
+            padding: 10px 18px;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+        }
+
+        /* HERO */
+
+        .hero {
+            padding: 90px 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5f3ff,
+                    #ffffff
+                );
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .tag {
+            display: inline-block;
+
+            background: #ede9fe;
+            color: #7c3aed;
+
+            padding: 7px 15px;
+
+            border-radius: 30px;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.15;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #7c3aed;
+        }
+
+        .hero p {
+            color: #64748b;
+            font-size: 18px;
+            line-height: 1.7;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+
+            background: #7c3aed;
+            color: white;
+
+            padding: 14px 25px;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* SERVICES */
+
+        .services {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #64748b;
+        }
+
+        .service-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #ffffff;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 12px;
+
+            padding: 32px;
+
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.08);
+
+            border-color: #c4b5fd;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #ede9fe;
+
+            border-radius: 12px;
+
+            font-size: 28px;
+
+            margin-bottom: 22px;
+        }
+
+        .service-card h3 {
+            font-size: 21px;
+
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #64748b;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+        .learn-more {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            color: #7c3aed;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            text-decoration: none;
+        }
+
+        /* PROCESS */
+
+        .process {
+            background: #0f172a;
+
+            color: white;
+
+            padding: 80px 0;
+        }
+
+        .process .section-title p {
+            color: #94a3b8;
+        }
+
+        .process-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .process-card {
+            text-align: center;
+
+            padding: 30px 20px;
+
+            border: 1px solid #334155;
+
+            border-radius: 10px;
+        }
+
+        .process-number {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: auto auto 18px;
+
+            background: #7c3aed;
+
+            border-radius: 50%;
+
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .process-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .process-card p {
+            color: #94a3b8;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+        /* CTA */
+
+        .cta {
+            padding: 80px 0;
+        }
+
+        .cta-box {
+            background: #7c3aed;
+
+            color: white;
+
+            border-radius: 15px;
+
+            padding: 55px;
+
+            text-align: center;
+        }
+
+        .cta-box h2 {
+            font-size: 35px;
+
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            color: #ede9fe;
+
+            margin-bottom: 25px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+
+            background: white;
+            color: #7c3aed;
+
+            padding: 13px 24px;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #020617;
+
+            color: white;
+
+            padding: 35px 0;
+
+            text-align: center;
+        }
+
+        footer p {
+            color: #94a3b8;
+
+            font-size: 14px;
+
+            margin: 5px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 900px) {
+
+            nav {
+                display: none;
+            }
+
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            .contact-btn {
+                display: none;
+            }
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-box {
+                padding: 35px 20px;
+            }
+
+            .cta-box h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="container navbar">
+
+        <div class="logo">
+            DevServices
+        </div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Projects</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <a href="#" class="contact-btn">
+            Get Started
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="container hero-content">
+
+        <span class="tag">
+            PROFESSIONAL SERVICES
+        </span>
+
+        <h1>
+            We Build
+            <span>Digital Solutions</span>
+            That Work
+        </h1>
+
+        <p>
+            From web development to cloud solutions,
+            we help businesses create reliable, scalable
+            and modern digital experiences.
+        </p>
+
+        <a href="#services" class="hero-btn">
+            Explore Services
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Our Services
+            </h2>
+
+            <p>
+                Professional solutions for modern businesses.
+            </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+            <!-- SERVICE 1 -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Web Development
+                </h3>
+
+                <p>
+                    Build fast, responsive and scalable
+                    websites using modern technologies.
+                </p>
+
+                <a href="#" class="learn-more">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+            <!-- SERVICE 2 -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ⚙️
+                </div>
+
+                <h3>
+                    API Development
+                </h3>
+
+                <p>
+                    Secure and reliable REST APIs for
+                    web and mobile applications.
+                </p>
+
+                <a href="#" class="learn-more">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+            <!-- SERVICE 3 -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ☁️
+                </div>
+
+                <h3>
+                    Cloud Solutions
+                </h3>
+
+                <p>
+                    Deploy and manage applications using
+                    modern cloud infrastructure.
+                </p>
+
+                <a href="#" class="learn-more">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+            <!-- SERVICE 4 -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🔐
+                </div>
+
+                <h3>
+                    Cyber Security
+                </h3>
+
+                <p>
+                    Protect applications and data with
+                    modern security practices.
+                </p>
+
+                <a href="#" class="learn-more">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+            <!-- SERVICE 5 -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📱
+                </div>
+
+                <h3>
+                    Mobile Development
+                </h3>
+
+                <p>
+                    Create user-friendly mobile applications
+                    for modern platforms.
+                </p>
+
+                <a href="#" class="learn-more">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+            <!-- SERVICE 6 -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Data & Analytics
+                </h3>
+
+                <p>
+                    Transform business data into useful
+                    insights and actionable information.
+                </p>
+
+                <a href="#" class="learn-more">
+                    Learn More →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROCESS -->
+
+<section class="process">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Our Process
+            </h2>
+
+            <p>
+                Simple steps from idea to successful delivery.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    01
+                </div>
+
+                <h3>
+                    Discover
+                </h3>
+
+                <p>
+                    Understand your requirements,
+                    goals and business needs.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    02
+                </div>
+
+                <h3>
+                    Design
+                </h3>
+
+                <p>
+                    Create a clear design and
+                    development strategy.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    03
+                </div>
+
+                <h3>
+                    Develop
+                </h3>
+
+                <p>
+                    Build and test the solution
+                    using modern technologies.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    04
+                </div>
+
+                <h3>
+                    Deliver
+                </h3>
+
+                <p>
+                    Deploy the final product and
+                    provide ongoing support.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <h2>
+                Ready to Start Your Project?
+            </h2>
+
+            <p>
+                Let's build something great together.
+            </p>
+
+            <a href="#" class="cta-btn">
+                Contact Us
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container">
+
+        <p>
+            DevServices — Developer B Design
+        </p>
+
+        <p>
+            Created on developer-b branch
+        </p>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
